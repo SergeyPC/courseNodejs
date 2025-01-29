@@ -7,40 +7,20 @@ logger.warning("Warning message")
 logger.error("Error message")
 logger.error(new Error("Error 123"))
 
-console.log(process);
-
 console.log({
     APP_ENV: process.env['APP_ENV'],
     DB_PASS: process.env['DB_PASS'],
     PID: process.pid
 })
 
-const p = process.env
+await sleep(5000)
 
+async function sleep(milliseconds) {
+    return new Promise(resolve => {
+        setTimeout(() => {
+            resolve();
+        }, milliseconds);
+    });
+}
 
-setInterval(() => {
-    const timestemp = new Date().toISOString()
-
-    logger.info(`${timestemp}`)
-}, 10_000)
-
-// process.on("SIGINT", () => { // CTR + C
-//     console.log("SIGINT terminate ....")
-
-//     setTimeout(() => {
-//         process.exit(1)
-//     }, 2_000)
-//     // 
-// })
-
-// process.on("SIGTERM", () => {
-//     console.log("SIGTERM terminate ....")
-
-//     // db.close()
-
-//     setTimeout(() => {
-//         process.exit(1)
-//     }, 2_000)
-// })
-
-// SIGTKILL
+console.log("finished code");
