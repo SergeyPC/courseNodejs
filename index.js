@@ -1,4 +1,5 @@
 import Logger from "./logger/logger.js";
+import 'dotenv/config';
 
 const logger  = new Logger()
 
