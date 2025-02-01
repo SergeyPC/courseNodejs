@@ -15,7 +15,6 @@ class Logger extends EventEmitter {
       });
     }
 
-    // Обработчик должен добавляться в конструкторе, а не в __log()
     this.on("log", (message) => {
       setImmediate(() => {
         fs.appendFile(this.logPath, `${message} \n`, (err) => {
