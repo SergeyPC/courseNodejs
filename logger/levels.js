@@ -1,8 +1,5 @@
-
-const levels = {
-    INFO: "info",
-    WARNING: "warning",
-    ERROR: "error"
-}
-
-export default levels
+export const levels = {
+  INFO: "info",
+  WARNING: "warning",
+  ERROR: "error"
+};
