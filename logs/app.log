@@ -253,3 +253,23 @@
 [2025-02-08T17:37:57.994Z], WARNING: Warning message
 [2025-02-08T17:37:57.995Z], ERROR: Error message
 [2025-02-08T17:37:57.995Z], ERROR: Error 123 at file:///C:/Users/serhii.filipp/Documents/Soft/Course%20Node.js/HomeWork%202/index.js:9:14
+[2025-02-10T11:25:58.646Z], INFO: Info message
+[2025-02-10T11:25:58.656Z], WARNING: Warning message
+[2025-02-10T11:25:58.656Z], ERROR: Error message
+[2025-02-10T11:25:58.657Z], ERROR: Error 123 at file:///C:/Users/serhii.filipp/Documents/Soft/Course%20Node.js/HomeWork%202/index.js:9:14
+[2025-02-10T11:28:04.500Z], INFO: Info message
+[2025-02-10T11:28:04.503Z], WARNING: Warning message
+[2025-02-10T11:28:04.503Z], ERROR: Error message
+[2025-02-10T11:28:04.503Z], ERROR: Error 123 at file:///C:/Users/serhii.filipp/Documents/Soft/Course%20Node.js/HomeWork%202/index.js:9:14
+[2025-02-11T17:01:00.760Z], INFO: Info message
+[2025-02-11T17:01:00.763Z], WARNING: Warning message
+[2025-02-11T17:01:00.763Z], ERROR: Error message
+[2025-02-11T17:01:00.764Z], ERROR: Error 123 at file:///C:/Users/serhii.filipp/Documents/Soft/Course%20Node.js/HomeWork%202/index.js:9:14
+[2025-02-11T17:01:16.867Z], INFO: Info message
+[2025-02-11T17:01:16.869Z], WARNING: Warning message
+[2025-02-11T17:01:16.870Z], ERROR: Error message
+[2025-02-11T17:01:16.870Z], ERROR: Error 123 at file:///C:/Users/serhii.filipp/Documents/Soft/Course%20Node.js/HomeWork%202/index.js:9:14
+[2025-02-16T14:23:59.159Z], INFO: Info message
+[2025-02-16T14:23:59.163Z], WARNING: Warning message
+[2025-02-16T14:23:59.164Z], ERROR: Error message
+[2025-02-16T14:23:59.165Z], ERROR: Error 123 at file:///C:/Users/serhii.filipp/Documents/Soft/Course%20Node.js/HomeWork%202/index.js:9:14

@@ -6,6 +6,8 @@ import { EventEmitter } from "node:events";
 import { Transform, Writable } from "node:stream";
 import chalk from "chalk";
 
+console.log(chalk.blue("dskhfbdksfjhsdf"));
+
 const levelColors = {
   info: chalk.blue,
   warning: chalk.yellowBright, 
