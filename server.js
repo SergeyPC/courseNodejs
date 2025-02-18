@@ -1,22 +1,42 @@
-import http from 'http';
+import express from 'express';
 
-const server = http.createServer((req, res) => {
-  const delay = Math.floor(Math.random() * 3000) + 1000;
-  
-  const isError = Math.random() < 0.1;
-  
-  setTimeout(() => {
-    if (isError) {
-      res.writeHead(500, { 'Content-Type': 'text/plain' });
-      res.end('Internal Server Error');
-    } else {
-      res.writeHead(200, { 'Content-Type': 'text/plain' });
-      res.end('Request handled successfully');
-    }
-  }, delay);
+const app = express();
+const port = 3000;
+app.use(express.json());
+
+let items = [];
+let idCounter = 1;
+
+app.get('/items', (req, res) => {
+  res.json(items);
 });
 
-const PORT = 3000;
-server.listen(PORT, () => {
-  console.log(`Server is running on http://localhost:${PORT}`);
+app.post('/items', (req, res) => {
+  const { title } = req.body;
+  if (!title) return res.status(400).json({ error: 'Title is required' });
+  const newItem = { id: idCounter++, title, status: 'new' };
+  items.push(newItem);
+  res.status(201).json(newItem);
+});
+
+app.put('/items/:itemId', (req, res) => {
+  const { itemId } = req.params;
+  const { status } = req.body;
+  const item = items.find(i => i.id === parseInt(itemId));
+  if (!item) return res.status(404).json({ error: 'Item not found' });
+  if (!['new', 'done'].includes(status)) return res.status(400).json({ error: 'Invalid status' });
+  item.status = status;
+  res.json(item);
+});
+
+app.delete('/items/:itemId', (req, res) => {
+  const { itemId } = req.params;
+  const index = items.findIndex(i => i.id === parseInt(itemId));
+  if (index === -1) return res.status(404).json({ error: 'Item not found' });
+  const deletedItem = items.splice(index, 1);
+  res.json(deletedItem);
+});
+
+app.listen(port, () => {
+  console.log(`Server is running on http://localhost:${port}`);
 });
