@@ -1,5 +1,17 @@
 import Logger from "./logger/logger.js";
 import 'dotenv/config';
+import express from 'express';
+import itemsRouter from './routes/items.js';
+
+const app = express();
+const port = 3000;
+
+app.use(express.json());
+app.use('/items', itemsRouter);
+
+app.listen(port, () => {
+  console.log(`Server is running on http://localhost:${port}`);
+});
 
 const logger  = new Logger()
 
