@@ -285,3 +285,7 @@
 [2025-02-23T18:32:19.535Z], [93mWARNING: Warning message[39m
 [2025-02-23T18:32:19.536Z], [31mERROR: Error message[39m
 [2025-02-23T18:32:19.537Z], [31mERROR: Error 123 at file:///C:/Users/serhii.filipp/Documents/Soft/Course%20Node.js/HomeWork%202/index.js:21:14[39m
+[2025-02-23T18:44:37.620Z], [34mINFO: Info message[39m
+[2025-02-23T18:44:37.623Z], [93mWARNING: Warning message[39m
+[2025-02-23T18:44:37.624Z], [31mERROR: Error message[39m
+[2025-02-23T18:44:37.625Z], [31mERROR: Error 123 at file:///C:/Users/serhii.filipp/Documents/Soft/Course%20Node.js/HomeWork%202/index.js:21:14[39m
