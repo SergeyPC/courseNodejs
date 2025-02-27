@@ -1,13 +1,16 @@
+import express from 'express';
+import authRoutes from './routes/authRoutes.js';
+import itemsRouter from './routes/items.js';
+import { authenticateToken } from './middlewares/authMiddleware.js';
 import Logger from "./logger/logger.js";
 import 'dotenv/config';
-import express from 'express';
-import itemsRouter from './routes/items.js';
 
 const app = express();
 const port = 3000;
 
 app.use(express.json());
-app.use('/items', itemsRouter);
+app.use('/auth', authRoutes);
+app.use('/items', authenticateToken, itemsRouter);
 
 app.listen(port, () => {
   console.log(`Server is running on http://localhost:${port}`);
