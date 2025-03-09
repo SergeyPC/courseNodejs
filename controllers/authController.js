@@ -2,7 +2,7 @@ import jwt from 'jsonwebtoken';
 import bcrypt from 'bcrypt';
 import 'dotenv/config';
 
-const users = new Map(); // Имитация базы данных пользователей
+const users = new Map();
 
 const generateTokens = (user) => {
   const accessToken = jwt.sign(

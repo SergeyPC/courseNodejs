@@ -5,7 +5,10 @@ import { itemSchema, statusSchema } from '../validators/itemValidator.js';
 
 const router = express.Router();
 
-router.get('/', getItems);
+router.get('/', (req, res) => {
+    getItems(req, res);
+  });
+
 router.post('/', validate(itemSchema), createItem);
 router.put('/:itemId', validate(statusSchema), updateItemStatus);
 router.delete('/:itemId', deleteItem);

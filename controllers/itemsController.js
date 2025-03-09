@@ -1,32 +1,49 @@
-import items from '../data/items.js';
+import Item from "../models/DbItem.js";
 
-export const getItems = (req, res) => {
-  res.json(items);
+export const getItems = async (req, res) => {
+  try {
+    const items = await Item.findAll(); 
+    res.json(items);
+  } catch (error) {
+    res.status(500).json({ error: "Ошибка при получении данных" });
+  }
 };
 
-export const createItem = (req, res) => {
+export const createItem = async (req, res) => {
   const { title } = req.body;
-  const newItem = { id: items.length + 1, title, status: 'new' };
-  items.push(newItem);
-  res.status(201).json(newItem);
+  try {
+    const newItem = await Item.create({ title }); 
+    res.status(201).json(newItem);
+  } catch (error) {
+    res.status(500).json({ error: "Ошибка при создании элемента" });
+  }
 };
 
-export const updateItemStatus = (req, res) => {
+export const updateItemStatus = async (req, res) => {
   const { itemId } = req.params;
   const { status } = req.body;
 
-  const item = items.find(i => i.id === parseInt(itemId));
-  if (!item) return res.status(404).json({ error: 'Item not found' });
+  try {
+    const item = await Item.findByPk(itemId); 
+    if (!item) return res.status(404).json({ error: "Item not found" });
 
-  item.status = status;
-  res.json(item);
+    item.status = status;
+    await item.save(); 
+    res.json(item);
+  } catch (error) {
+    res.status(500).json({ error: "Ошибка при обновлении статуса" });
+  }
 };
 
-export const deleteItem = (req, res) => {
+export const deleteItem = async (req, res) => {
   const { itemId } = req.params;
-  const index = items.findIndex(i => i.id === parseInt(itemId));
-  if (index === -1) return res.status(404).json({ error: 'Item not found' });
 
-  const deletedItem = items.splice(index, 1);
-  res.json(deletedItem[0]);
+  try {
+    const deleted = await Item.destroy({ where: { id: itemId } }); 
+    if (!deleted) return res.status(404).json({ error: "Item not found" });
+
+    res.json({ message: "Item deleted" });
+  } catch (error) {
+    res.status(500).json({ error: "Ошибка при удалении элемента" });
+  }
 };

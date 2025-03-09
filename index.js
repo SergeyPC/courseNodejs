@@ -1,9 +1,12 @@
-import express from 'express';
+import express from "express";
 import authRoutes from './routes/authRoutes.js';
 import itemsRouter from './routes/items.js';
 import { authenticateToken } from './middlewares/authMiddleware.js';
 import Logger from "./logger/logger.js";
 import 'dotenv/config';
+import { syncDB } from "./models/initModels.js";
+
+await syncDB();
 
 const app = express();
 const port = 3000;
